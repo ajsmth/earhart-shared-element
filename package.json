@@ -1,6 +1,6 @@
 {
   "name": "earhart-shared-element",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "shared element transitions w/ earhart ",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
@@ -11,7 +11,7 @@
     "lib",
     "android",
     "ios",
-    "earhartsharedelement.podspec"
+    "earhart-shared-element.podspec"
   ],
   "scripts": {
     "test": "jest",
