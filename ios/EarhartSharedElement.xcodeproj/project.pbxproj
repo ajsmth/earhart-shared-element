@@ -1,0 +1,318 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B3E7B58A1CC2AC0600A0062D /* EarhartSharedElement.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* EarhartSharedElement.m */; };
+		DB5ADEF2241E9005005D5581 /* RNSharedElementNodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5ADEE4241E9005005D5581 /* RNSharedElementNodeManager.m */; };
+		DB5ADEF3241E9005005D5581 /* RNSharedElementTransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5ADEE5241E9005005D5581 /* RNSharedElementTransitionManager.m */; };
+		DB5ADEF4241E9005005D5581 /* RNSharedElementNode.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5ADEE8241E9005005D5581 /* RNSharedElementNode.m */; };
+		DB5ADEF5241E9005005D5581 /* RNSharedElementStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5ADEEB241E9005005D5581 /* RNSharedElementStyle.m */; };
+		DB5ADEF6241E9005005D5581 /* RNSharedElementContent.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5ADEEF241E9005005D5581 /* RNSharedElementContent.m */; };
+		DB5ADEF7241E9005005D5581 /* RNSharedElementTransitionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5ADEF0241E9005005D5581 /* RNSharedElementTransitionItem.m */; };
+		DB5ADEF8241E9005005D5581 /* RNSharedElementTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5ADEF1241E9005005D5581 /* RNSharedElementTransition.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		58B511D91A9E6C8500147676 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		134814201AA4EA6300B7C361 /* libEarhartSharedElement.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEarhartSharedElement.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3E7B5881CC2AC0600A0062D /* EarhartSharedElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EarhartSharedElement.h; sourceTree = "<group>"; };
+		B3E7B5891CC2AC0600A0062D /* EarhartSharedElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EarhartSharedElement.m; sourceTree = "<group>"; };
+		DB5ADEE2241E9004005D5581 /* RNSharedElementTransitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSharedElementTransitionManager.h; sourceTree = "<group>"; };
+		DB5ADEE3241E9004005D5581 /* RNSharedElementTransitionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSharedElementTransitionItem.h; sourceTree = "<group>"; };
+		DB5ADEE4241E9005005D5581 /* RNSharedElementNodeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSharedElementNodeManager.m; sourceTree = "<group>"; };
+		DB5ADEE5241E9005005D5581 /* RNSharedElementTransitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSharedElementTransitionManager.m; sourceTree = "<group>"; };
+		DB5ADEE6241E9005005D5581 /* RNSharedElementDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSharedElementDelegate.h; sourceTree = "<group>"; };
+		DB5ADEE7241E9005005D5581 /* RNSharedElementNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSharedElementNode.h; sourceTree = "<group>"; };
+		DB5ADEE8241E9005005D5581 /* RNSharedElementNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSharedElementNode.m; sourceTree = "<group>"; };
+		DB5ADEE9241E9005005D5581 /* RNSharedElementContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSharedElementContent.h; sourceTree = "<group>"; };
+		DB5ADEEA241E9005005D5581 /* RNSharedElementTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSharedElementTypes.h; sourceTree = "<group>"; };
+		DB5ADEEB241E9005005D5581 /* RNSharedElementStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSharedElementStyle.m; sourceTree = "<group>"; };
+		DB5ADEEC241E9005005D5581 /* RNSharedElementStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSharedElementStyle.h; sourceTree = "<group>"; };
+		DB5ADEED241E9005005D5581 /* RNSharedElementNodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSharedElementNodeManager.h; sourceTree = "<group>"; };
+		DB5ADEEE241E9005005D5581 /* RNSharedElementTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNSharedElementTransition.h; sourceTree = "<group>"; };
+		DB5ADEEF241E9005005D5581 /* RNSharedElementContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSharedElementContent.m; sourceTree = "<group>"; };
+		DB5ADEF0241E9005005D5581 /* RNSharedElementTransitionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSharedElementTransitionItem.m; sourceTree = "<group>"; };
+		DB5ADEF1241E9005005D5581 /* RNSharedElementTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSharedElementTransition.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58B511D81A9E6C8500147676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		134814211AA4EA7D00B7C361 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				134814201AA4EA6300B7C361 /* libEarhartSharedElement.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		58B511D21A9E6C8500147676 = {
+			isa = PBXGroup;
+			children = (
+				B3E7B5881CC2AC0600A0062D /* EarhartSharedElement.h */,
+				B3E7B5891CC2AC0600A0062D /* EarhartSharedElement.m */,
+				DB5ADEE9241E9005005D5581 /* RNSharedElementContent.h */,
+				DB5ADEEF241E9005005D5581 /* RNSharedElementContent.m */,
+				DB5ADEE6241E9005005D5581 /* RNSharedElementDelegate.h */,
+				DB5ADEE7241E9005005D5581 /* RNSharedElementNode.h */,
+				DB5ADEE8241E9005005D5581 /* RNSharedElementNode.m */,
+				DB5ADEED241E9005005D5581 /* RNSharedElementNodeManager.h */,
+				DB5ADEE4241E9005005D5581 /* RNSharedElementNodeManager.m */,
+				DB5ADEEC241E9005005D5581 /* RNSharedElementStyle.h */,
+				DB5ADEEB241E9005005D5581 /* RNSharedElementStyle.m */,
+				DB5ADEEE241E9005005D5581 /* RNSharedElementTransition.h */,
+				DB5ADEF1241E9005005D5581 /* RNSharedElementTransition.m */,
+				DB5ADEE3241E9004005D5581 /* RNSharedElementTransitionItem.h */,
+				DB5ADEF0241E9005005D5581 /* RNSharedElementTransitionItem.m */,
+				DB5ADEE2241E9004005D5581 /* RNSharedElementTransitionManager.h */,
+				DB5ADEE5241E9005005D5581 /* RNSharedElementTransitionManager.m */,
+				DB5ADEEA241E9005005D5581 /* RNSharedElementTypes.h */,
+				134814211AA4EA7D00B7C361 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		58B511DA1A9E6C8500147676 /* EarhartSharedElement */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "EarhartSharedElement" */;
+			buildPhases = (
+				58B511D71A9E6C8500147676 /* Sources */,
+				58B511D81A9E6C8500147676 /* Frameworks */,
+				58B511D91A9E6C8500147676 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EarhartSharedElement;
+			productName = RCTDataManager;
+			productReference = 134814201AA4EA6300B7C361 /* libEarhartSharedElement.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58B511D31A9E6C8500147676 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = Facebook;
+				TargetAttributes = {
+					58B511DA1A9E6C8500147676 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "EarhartSharedElement" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+			);
+			mainGroup = 58B511D21A9E6C8500147676;
+			productRefGroup = 58B511D21A9E6C8500147676;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				58B511DA1A9E6C8500147676 /* EarhartSharedElement */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58B511D71A9E6C8500147676 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB5ADEF3241E9005005D5581 /* RNSharedElementTransitionManager.m in Sources */,
+				DB5ADEF6241E9005005D5581 /* RNSharedElementContent.m in Sources */,
+				DB5ADEF8241E9005005D5581 /* RNSharedElementTransition.m in Sources */,
+				B3E7B58A1CC2AC0600A0062D /* EarhartSharedElement.m in Sources */,
+				DB5ADEF2241E9005005D5581 /* RNSharedElementNodeManager.m in Sources */,
+				DB5ADEF4241E9005005D5581 /* RNSharedElementNode.m in Sources */,
+				DB5ADEF5241E9005005D5581 /* RNSharedElementStyle.m in Sources */,
+				DB5ADEF7241E9005005D5581 /* RNSharedElementTransitionItem.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		58B511ED1A9E6C8500147676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		58B511EE1A9E6C8500147676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		58B511F01A9E6C8500147676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../../React/**",
+					"$(SRCROOT)/../../react-native/React/**",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = EarhartSharedElement;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		58B511F11A9E6C8500147676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../../React/**",
+					"$(SRCROOT)/../../react-native/React/**",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = EarhartSharedElement;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "EarhartSharedElement" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B511ED1A9E6C8500147676 /* Debug */,
+				58B511EE1A9E6C8500147676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "EarhartSharedElement" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B511F01A9E6C8500147676 /* Debug */,
+				58B511F11A9E6C8500147676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58B511D31A9E6C8500147676 /* Project object */;
+}
