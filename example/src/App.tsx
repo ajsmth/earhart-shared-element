@@ -7,11 +7,13 @@ import {
   Link,
   useParams,
   useInterpolation,
+  Tabs,
+  Redirect,
 } from 'earhart';
 
-import {View, Text, Image, SafeAreaView, ScrollView} from './tailwind';
+import { View, Text, Image, SafeAreaView, ScrollView } from './tailwind';
 
-import {Animated, Button} from 'react-native';
+import { Animated, Button, StyleSheet } from 'react-native';
 
 const imageUris = [
   'https://images.unsplash.com/photo-1583940447650-4ad880bec532?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80',
@@ -20,7 +22,7 @@ const imageUris = [
   'https://images.unsplash.com/photo-1584034256047-741246c713e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1581&q=80',
 ];
 
-import {SharedElement, SharedElements} from 'earhart-shared-element';
+import { SharedElement, SharedElements } from 'earhart-shared-element';
 
 function ListScreen({}) {
   return (
@@ -34,21 +36,21 @@ function ListScreen({}) {
   );
 }
 
-function Card({index}) {
+function Card({ index }) {
   const uri = imageUris[index];
   return (
-    <Link to={`${index}`} key={uri}>
+    <Link to={`profile/${index}`} key={uri}>
       <View className="p-2">
         <View className="items-start">
-          <SharedElement id={`${index}`} >
+          <SharedElement id={`${index}`} config={{ debug: true }}>
             <Image
-              source={{uri: imageUris[index]}}
+              source={{ uri: imageUris[index] }}
               style={{
                 width: 300,
                 height: 200,
                 borderWidth: 1,
               }}
-              resizeMode="cover" 
+              resizeMode="cover"
             />
           </SharedElement>
         </View>
@@ -84,68 +86,91 @@ function ProfileScreen({}) {
 
   return (
     <ScrollView className="flex-1">
-      <View style={{flex: 1, height: 400}}>
-        <SharedElement id={`${params.id}`} >
-          <Image source={{uri: imageUris[params.id]}} style={{height: 400}} 
-          resizeMode="cover" />
+      <View style={{ flex: 1, height: 400 }}>
+        <SharedElement id={`${params.id}`} config={{ debug: true }}>
+          <Image
+            source={{ uri: imageUris[params.id] }}
+            style={{ height: 400 }}
+            resizeMode="cover"
+          />
         </SharedElement>
       </View>
 
-      <Animated.View
+      {/* <Animated.View
         style={{
           flex: 1,
           backgroundColor: 'white',
           minHeight: 700,
           ...styles,
-        }}>
+        }}
+      >
         <View className="p-12">
           <Text className="text-3xl font-bold text-center">Oh Hi Mark</Text>
         </View>
-      </Animated.View>
+      </Animated.View> */}
     </ScrollView>
+  );
+}
+
+function SharedExample() {
+  return (
+    <View style={StyleSheet.absoluteFill}>
+      <SharedElements transitionConfig={{ duration: 4000 }}>
+        <Routes>
+          <Route path="/*">
+            <ListScreen />
+          </Route>
+
+          <Route path="profile/:id">
+            <ProfileScreen />
+          </Route>
+        </Routes>
+
+        <Link to="/">
+          <Text>To /</Text>
+        </Link>
+        <Link to={-1}>
+          <Text>Back</Text>
+        </Link>
+        <SafeAreaView />
+      </SharedElements>
+    </View>
   );
 }
 
 function App() {
   return (
     <AppProviders>
-      <SafeAreaView style={{flex: 1, borderWidth: 1, transform: [{ translateX: 20 }]}}>
-        <SharedElements>
-          <Routes>
-            <Route path="/">
-              <SafeAreaView className="flex-1">
-                <ListScreen />
-              </SafeAreaView>
-            </Route>
+      <Tabs>
+        <View style={{ height: 100, backgroundColor: 'white' }} />
+        <Routes>
+          <Route path="hey/*">
+            <SharedExample />
+          </Route>
 
-            <Route path="/:id">
-              <ProfileScreen />
-            </Route>
-          </Routes>
+          <Route path="hi/*">
+            <SharedExample />
+          </Route>
 
-          <Link to="/">
-            <Text>To /</Text>
-          </Link>
-          <Link to="../">
-            <Text>Back</Text>
-          </Link>
-          <SafeAreaView />
-        </SharedElements>
-      </SafeAreaView>
+          {/* <Redirect to="/hey" /> */}
+        </Routes>
+      </Tabs>
+
+      <Location />
     </AppProviders>
   );
 }
 
-function AppProviders({children}) {
+function AppProviders({ children }) {
   return (
     <NativeRouter>
-      <View style={{flex: 1}}>{children}</View>
+      <View style={{ flex: 1 }}>{children}</View>
     </NativeRouter>
   );
 }
 
 function Location() {
-  const {location} = useRouter();
+  const { location } = useRouter();
   return <Text>{location.pathname}</Text>;
 }
 

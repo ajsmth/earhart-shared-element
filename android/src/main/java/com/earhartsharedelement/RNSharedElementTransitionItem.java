@@ -137,13 +137,19 @@ class RNSharedElementTransitionItem {
         Rect clippedLayout = new Rect(mStyle.layout);
         ViewParent parentView = view.getParent();
         int[] location = new int[2];
+
+        // UPDATE -- make relative by removing parent location from values
+        int[] ancestorLocation = new int[2];
+
         Rect bounds = new Rect();
         while (parentView != null) {
             if (!(parentView instanceof ViewGroup)) break;
             ViewGroup viewGroup = (ViewGroup) parentView;
             viewGroup.getLocationOnScreen(location);
-            location[0] -= ancestorTranslateX;
-            location[1] -= ancestorTranslateY;
+            ancestorView.getLocationOnScreen(ancestorLocation);
+
+            location[0] -= ancestorTranslateX + ancestorLocation[0];
+            location[1] -= ancestorTranslateY + ancestorLocation[1];
 
             bounds.left = location[0];
             bounds.top = location[1];

@@ -5,7 +5,7 @@ shared element transitions w/ earhart
 ## Installation
 
 ```sh
-npm install earhart-shared-element
+npm install earhart-shared-element && cd ios && pod install
 ```
 
 ## Usage

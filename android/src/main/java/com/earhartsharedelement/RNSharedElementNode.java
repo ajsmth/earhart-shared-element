@@ -171,7 +171,7 @@ class RNSharedElementNode {
 
     private boolean fetchInitialStyle() {
         View view = getResolvedView();
-        if (view == null) return false;
+        if (view == null || mAncestorView == null) return false;
         if (mStyleCallbacks == null) return true;
 
         // Get relative size and position within parent
@@ -186,9 +186,16 @@ class RNSharedElementNode {
         Rect frame = new Rect(left, top, left + width, top + height);
 
         // Get absolute position on screen (left/top)
-        int[] location = new int[2]; 
+        // UPDATE -- make relative by removing parent location from values
+        int[] location = new int[2];
+        int[] ancestorLocation = new int[2];
+       
         view.getLocationOnScreen(location);
+        mAncestorView.getLocationOnScreen(ancestorLocation);
 
+        Log.d(LOG_TAG, "location: " + location[0] + ' ' + location[1]);
+        Log.d(LOG_TAG, "ancestorLocation: " + ancestorLocation[0] + ' ' + ancestorLocation[1]);
+        
         // Calculate the optional translation that was performed on the ancestor.
         // This corrects for any scene translation that was performed by the navigator.
         // E.g. when the incoming scene starts to the right and moves to the left
@@ -197,8 +204,9 @@ class RNSharedElementNode {
         ancestorTransform.getValues(f);
         int ancestorTranslateX = (int) f[Matrix.MTRANS_X];
         int ancestorTranslateY = (int) f[Matrix.MTRANS_Y];
-        left = location[0];
-        top = location[1];
+
+        left = location[0] - ancestorTranslateX - ancestorLocation[0];
+        top = location[1] - ancestorTranslateY - ancestorLocation[1];
 
         // In case the view has a scale transform applied, the calculate
         // the correct visual width & height of the view
@@ -228,8 +236,6 @@ class RNSharedElementNode {
 
         // Update initial style cache
         mStyleCache = style;
-
-        //Log.d(LOG_TAG, "Style fetched: " + style);
 
         // Notify callbacks
         ArrayList<Callback> callbacks = mStyleCallbacks;

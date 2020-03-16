@@ -244,15 +244,17 @@ public class RNSharedElementTransition extends ViewGroup {
         // Update outer viewgroup layout. The outer viewgroup hosts 2 inner views
         // which draw the content & elevation. The outer viewgroup performs additional
         // clipping on these views.
+        // UPDATE - set left / top values to 0, 0 instead of using parentOffset
         ((View)getParent()).getLocationOnScreen(mParentOffset);
         super.layout(
-                -mParentOffset[0],
-                -mParentOffset[1],
-          (int) Math.ceil(parentLayout.width() - mParentOffset[0]),
-          (int) Math.ceil(parentLayout.height() - mParentOffset[1])
+                0,
+                0,
+                (int) Math.ceil(parentLayout.width()),
+                (int) Math.ceil(parentLayout.height())
         );
         setTranslationX(parentLayout.left);
         setTranslationY(parentLayout.top);
+
 
         // Determine opacity
         float startAlpha = 1.0f;

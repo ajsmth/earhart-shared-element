@@ -146,7 +146,6 @@ function SharedElementsImpl({
         const endNode = transition[nextIndex];
 
         if (startNode && endNode) {
-          console.log({ startNode, endNode });
           const startAncestor = ancestors[currentIndex];
           const endAncestor = ancestors[nextIndex];
 
