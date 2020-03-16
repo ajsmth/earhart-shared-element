@@ -4,9 +4,13 @@ shared element transitions w/ earhart
 
 ## Installation
 
-```sh
-npm install earhart-shared-element && cd ios && pod install
+```bash
+yarn add earhart-shared-element react-native-gesture-handler
+cd ios && pod install
 ```
+
+Follow the getting started instructions for Android builds: 
+https://software-mansion.github.io/react-native-gesture-handler/docs/getting-started.html#android
 
 ## Usage
 
