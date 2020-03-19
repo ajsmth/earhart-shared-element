@@ -9,7 +9,7 @@ yarn add earhart-shared-element react-native-gesture-handler
 cd ios && pod install
 ```
 
-Follow the getting started instructions for Android builds: 
+Follow the getting started instructions for Android builds:
 https://software-mansion.github.io/react-native-gesture-handler/docs/getting-started.html#android
 
 ## Usage
@@ -23,13 +23,8 @@ function App() {
     <NativeRouter>
       <SharedElements>
         <Routes>
-          <Route path="/">
-            <Scene1 />
-          </Route>
-
-          <Route path="next">
-            <Scene2 />
-          </Route>
+          <Scene1 path="/" />
+          <Scene2 path="next" />
         </Routes>
       </SharedElements>
     </NativeRouter>
@@ -40,6 +35,7 @@ function Scene1() {
   return (
     <View style={{ flex: 1 }}>
       <Link to="next">
+        // this image will be passed to Scene2 tweening to the new position and size 
         <SharedElement id="image">
           <Image
             source={{ uri: 'https://my-image.jpg' }}
@@ -66,6 +62,10 @@ function Scene2() {
   );
 }
 ```
+
+## Roadmap
+
+- gesture handler support for dismissing views
 
 ## License
 
