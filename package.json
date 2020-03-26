@@ -1,6 +1,6 @@
 {
   "name": "earhart-shared-element",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "shared element transitions w/ earhart ",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
