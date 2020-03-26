@@ -58,7 +58,7 @@
     "typescript": "^3.7.5"
   },
   "peerDependencies": {
-    "earhart": "^0.0.8",
+    "earhart": "^0.1.1",
     "react": "*",
     "react-native": "*",
     "react-native-gesture-handler": "^1.6.0"
