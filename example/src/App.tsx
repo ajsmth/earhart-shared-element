@@ -1,19 +1,17 @@
 import React from 'react';
 import {
-  NativeRouter,
-  useRouter,
-  Routes,
+  Router,
   Route,
   Link,
   useParams,
-  useInterpolation,
+  Navigator,
+  useHistory,
   Tabs,
-  Redirect,
+  useNavigator,
 } from 'earhart';
-
+import { SharedElement, SharedElements, useSharedElementInterpolation  } from 'earhart-shared-element';
 import { View, Text, Image, SafeAreaView, ScrollView } from './tailwind';
-
-import { Animated, Button, StyleSheet } from 'react-native';
+import { Animated } from 'react-native';
 
 const imageUris = [
   'https://images.unsplash.com/photo-1583940447650-4ad880bec532?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80',
@@ -22,156 +20,127 @@ const imageUris = [
   'https://images.unsplash.com/photo-1584034256047-741246c713e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1581&q=80',
 ];
 
-import { SharedElement, SharedElements } from 'earhart-shared-element';
-
-function ListScreen({}) {
+function Home() {
   return (
     <View className="flex-1">
+      <Text className="text-2xl font-bold">Home 123</Text>
+
       <ScrollView className="flex-1 p-2">
-        {imageUris.map((uri, index) => (
-          <Card key={uri} index={index} />
-        ))}
+        {imageUris.map((uri, index) => {
+          return (
+            <View key={index} className="p-2 m-2">
+              <Link to={`/profile/${index}`}>
+                <SharedElement id={`image-${index}`}>
+                  <Image
+                    source={{ uri }}
+                    style={{ height: 300 }}
+                    resizeMode="cover"
+                  />
+                </SharedElement>
+              </Link>
+            </View>
+          );
+        })}
       </ScrollView>
     </View>
   );
 }
 
-function Card({ index }) {
-  const uri = imageUris[index];
-  return (
-    <Link to={`profile/${index}`} key={uri}>
-      <View className="p-2">
-        <View className="items-start">
-          <SharedElement id={`${index}`} config={{ debug: true }}>
-            <Image
-              source={{ uri: imageUris[index] }}
-              style={{
-                width: 300,
-                height: 200,
-                borderWidth: 1,
-              }}
-              resizeMode="cover"
-            />
-          </SharedElement>
-        </View>
+function Profile() {
+  const params = useParams();
 
-        <SharedElement id={`${index}-x`}>
-          <View
-            style={{
-              height: 1,
-              width: '100%',
-              backgroundColor: 'transparent',
-            }}
-          />
-        </SharedElement>
-      </View>
-    </Link>
+  return (
+    <View className="flex-1">
+      <Text className="text-2xl font-bold">Profile</Text>
+      <SharedElement id={`image-${params.id}`}>
+        <Image
+          source={{ uri: imageUris[parseInt(params.id)] }}
+          style={{ height: 400 }}
+          resizeMode="cover"
+        />
+      </SharedElement>
+
+      <TransitionBottom>
+        <View className="p-4" style={{ minHeight: 400 }}>
+          <Text className="text-2xl font-bold">Hello Joe</Text>
+        </View>
+      </TransitionBottom>
+    </View>
   );
 }
 
-const profileStyles = {
+const transitionBottom = {
   transform: [
     {
       translateY: {
         inputRange: [-1, 0, 1],
-        outputRange: [-1000, 0, 1000],
+        outputRange: [400, 0, 400],
       },
     },
   ],
+
+  opacity: {
+    inputRange: [-1, 0, 1],
+    outputRange: [0, 1, 0]
+  }
 };
 
-function ProfileScreen({}) {
-  const params = useParams();
-  const styles = useInterpolation(profileStyles);
+function TransitionBottom({ children }) {
+  const style = useSharedElementInterpolation(transitionBottom);
 
   return (
-    <ScrollView className="flex-1">
-      <View style={{ flex: 1, height: 400 }}>
-        <SharedElement id={`${params.id}`} config={{ debug: true }}>
-          <Image
-            source={{ uri: imageUris[params.id] }}
-            style={{ height: 400 }}
-            resizeMode="cover"
-          />
-        </SharedElement>
-      </View>
-
-      {/* <Animated.View
-        style={{
-          flex: 1,
-          backgroundColor: 'white',
-          minHeight: 700,
-          ...styles,
-        }}
-      >
-        <View className="p-12">
-          <Text className="text-3xl font-bold text-center">Oh Hi Mark</Text>
-        </View>
-      </Animated.View> */}
-    </ScrollView>
+    <Animated.View style={{ ...style, backgroundColor: 'white' }}>
+      {children}
+    </Animated.View>
   );
 }
 
-function SharedExample() {
+function SharedElementNavigator() {
   return (
-    <View style={StyleSheet.absoluteFill}>
-      <SharedElements transitionConfig={{ duration: 4000 }}>
-        <Routes>
-          <Route path="/*">
-            <ListScreen />
-          </Route>
+    <>
+      <SharedElements>
+        <Route path="/home">
+          <Home />
+        </Route>
 
-          <Route path="profile/:id">
-            <ProfileScreen />
-          </Route>
-        </Routes>
-
-        <Link to="/">
-          <Text>To /</Text>
-        </Link>
-        <Link to={-1}>
-          <Text>Back</Text>
-        </Link>
-        <SafeAreaView />
+        <Route path="/profile/:id">
+          <Profile />
+        </Route>
       </SharedElements>
-    </View>
+
+      <View className="flex-row">
+        <Link to="/home">
+          <Text className="text-2xl font-medium">Home</Text>
+        </Link>
+      </View>
+    </>
   );
 }
 
 function App() {
   return (
-    <AppProviders>
-      <Tabs>
-        <View style={{ height: 100, backgroundColor: 'white' }} />
-        <Routes>
-          <Route path="hey/*">
-            <SharedExample />
-          </Route>
-
-          <Route path="hi/*">
-            <SharedExample />
-          </Route>
-
-          {/* <Redirect to="/hey" /> */}
-        </Routes>
-      </Tabs>
+    <Router>
+      <Navigator>
+        <SharedElementNavigator />
+      </Navigator>
 
       <Location />
-    </AppProviders>
-  );
-}
-
-function AppProviders({ children }) {
-  return (
-    <NativeRouter>
-      <View style={{ flex: 1 }}>{children}</View>
-    </NativeRouter>
+      <SafeAreaView />
+    </Router>
   );
 }
 
 function Location() {
-  const { location } = useRouter();
-  return <Text>{location.pathname}</Text>;
+  const history = useHistory();
+  const [location, setLocation] = React.useState(history.location.pathname);
+
+  React.useEffect(() => {
+    return history.listen(location => {
+      setLocation(location.pathname);
+    });
+  }, [history]);
+
+  return <Text>{location}</Text>;
 }
 
 export default App;

@@ -1,7 +1,7 @@
 PODS:
   - boost-for-react-native (1.63.0)
   - DoubleConversion (1.1.6)
-  - earhart-shared-element (0.1.0):
+  - earhart-shared-element (0.1.7):
     - React
   - FBLazyVector (0.61.5)
   - FBReactNativeSpec (0.61.5):
@@ -221,6 +221,8 @@ PODS:
     - ReactCommon/jscallinvoker (= 0.61.5)
   - RNGestureHandler (1.6.0):
     - React
+  - RNScreens (2.4.0):
+    - React
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -253,6 +255,7 @@ DEPENDENCIES:
   - ReactCommon/jscallinvoker (from `../node_modules/react-native/ReactCommon`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNScreens (from `../node_modules/react-native-screens`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -312,13 +315,15 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNScreens:
+    :path: "../node_modules/react-native-screens"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
-  earhart-shared-element: 646ee1bcc8462e11a5efa7e0fed50aa76091c6b0
+  earhart-shared-element: f861cfd59c0507f39e18a71e854ffdaeacd3f126
   FBLazyVector: aaeaf388755e4f29cd74acbc9e3b8da6d807c37f
   FBReactNativeSpec: 118d0d177724c2d67f08a59136eb29ef5943ec75
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
@@ -343,6 +348,7 @@ SPEC CHECKSUMS:
   React-RCTVibration: a49a1f42bf8f5acf1c3e297097517c6b3af377ad
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
   RNGestureHandler: dde546180bf24af0b5f737c8ad04b6f3fa51609a
+  RNScreens: b5c0e1b2b04512919e78bd3898e144a157ce2363
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
 PODFILE CHECKSUM: 7ca5613415cdf90c39276103f9de3e6a5c25ebf1

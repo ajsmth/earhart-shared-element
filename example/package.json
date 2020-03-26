@@ -9,10 +9,11 @@
     "start": "react-native start"
   },
   "dependencies": {
-    "earhart": "^0.0.8",
+    "earhart": "^0.1.0",
     "react": "16.9.0",
     "react-native": "0.61.5",
     "react-native-gesture-handler": "^1.6.0",
+    "react-native-screens": "^2.4.0",
     "tailwind-rn": "^1.0.0"
   },
   "devDependencies": {

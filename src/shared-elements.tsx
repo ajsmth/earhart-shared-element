@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  Navigator,
-  RoutesContainerContext,
-  IRoutesContainer,
-  useNavigator,
-} from 'earhart';
+import { useNavigator } from 'earhart';
 
 import {
   SharedElement as RNSharedElement,
@@ -205,14 +200,13 @@ function SharedElementsImpl({
     return nodes;
   }
 
-
   return (
     <AnimatedIndexContext.Provider value={animatedIndex}>
       <View style={{ flex: 1 }} collapsable={false}>
         {React.Children.map(children, (child: any, index: number) => {
           if (!transitioning) {
             if (index > activeIndex) {
-              return null;
+              return React.cloneElement(child, { children: null });
             }
           }
 
@@ -273,23 +267,6 @@ function SharedElement({ children, id, config }: ISharedElement) {
   );
 }
 
-function SharedElementsScreenContainer({ children }: IRoutesContainer) {
-  const { match, animatedIndex } = useNavigator();
-  const activeIndex = match ? match.index : 0;
-
-  const config = React.useContext(SharedElementsConfigContext);
-
-  return (
-    <SharedElementsImpl
-      activeIndex={activeIndex}
-      animatedIndex={animatedIndex}
-      transitionConfig={config}
-    >
-      {children}
-    </SharedElementsImpl>
-  );
-}
-
 type ITransitionConfig =
   | Partial<Animated.SpringAnimationConfig>
   | Partial<Animated.TimingAnimationConfig>;
@@ -304,31 +281,33 @@ const DEFAULT_TRANSITION_CONFIG: ITransitionConfig = {
   useNativeDriver: true,
 };
 
-const SharedElementsConfigContext = React.createContext<ITransitionConfig>(
-  DEFAULT_TRANSITION_CONFIG
-);
 
 interface ISharedElementsNavigator {
   children: React.ReactNode;
   transitionConfig?: ITransitionConfig;
+  animatedValue?: Animated.Value;
 }
 
 function SharedElements({
   children,
   transitionConfig = DEFAULT_TRANSITION_CONFIG,
+  animatedValue,
 }: ISharedElementsNavigator) {
+  const { activeIndex } = useNavigator();
+
+  console.log({ activeIndex })
+  const animatedIndex = React.useRef(animatedValue || new Animated.Value(activeIndex));
+
   return (
-    <Navigator>
-      <SharedElementsConfigContext.Provider value={transitionConfig}>
-        <TransitionContextProvider>
-          <RoutesContainerContext.Provider
-            value={SharedElementsScreenContainer}
-          >
-            {children}
-          </RoutesContainerContext.Provider>
-        </TransitionContextProvider>
-      </SharedElementsConfigContext.Provider>
-    </Navigator>
+    <TransitionContextProvider>
+      <SharedElementsImpl
+        activeIndex={activeIndex}
+        animatedIndex={animatedIndex.current}
+        transitionConfig={transitionConfig}
+      >
+        {children}
+      </SharedElementsImpl>
+    </TransitionContextProvider>
   );
 }
 
