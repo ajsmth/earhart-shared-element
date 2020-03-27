@@ -16,15 +16,22 @@ https://software-mansion.github.io/react-native-gesture-handler/docs/getting-sta
 
 ```jsx
 import { SharedElements, SharedElement } from 'earhart-shared-element';
-import { Routere, Link, Route, Link } from 'earhart';
+import { Routere, Link, Route, Link, Navigator } from 'earhart';
 
 function App() {
   return (
     <Router>
-      <SharedElements>
-        <Scene1 path="/" />
-        <Scene2 path="/next" />
-      </SharedElements>
+      <Navigator>
+        <SharedElements>
+          <Route path='/'>
+            <Scene1 path="/" />
+          </Route>
+
+          <Route path='/next'>
+            <Scene2 path="/next" />
+          </Route>
+        </SharedElements>
+      </Navigator>
     </Router>
   );
 }
@@ -33,8 +40,6 @@ function Scene1() {
   return (
     <View style={{ flex: 1 }}>
       <Link to="/next">
-        // this image will be passed to Scene2 tweening to the new position and
-        size
         <SharedElement id="image">
           <Image
             source={{ uri: 'https://my-image.jpg' }}

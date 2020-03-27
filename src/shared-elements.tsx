@@ -295,7 +295,6 @@ function SharedElements({
 }: ISharedElementsNavigator) {
   const { activeIndex } = useNavigator();
 
-  console.log({ activeIndex })
   const animatedIndex = React.useRef(animatedValue || new Animated.Value(activeIndex));
 
   return (
