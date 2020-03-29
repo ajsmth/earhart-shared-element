@@ -232,6 +232,7 @@ function SharedElementsImpl({
 
 interface ISharedElementScreen {
   children: React.ReactNode;
+  activeIndex: number;
 }
 
 function SharedElementScreen({ children, activeIndex }: ISharedElementScreen) {
