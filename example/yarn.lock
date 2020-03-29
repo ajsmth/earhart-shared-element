@@ -3631,6 +3631,11 @@ react-native-screens@^2.4.0:
   dependencies:
     debounce "^1.2.0"
 
+react-native-shared-element@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/react-native-shared-element/-/react-native-shared-element-0.6.0.tgz#76f6ea29579777306b6ecffd37bb48e2c4cf909e"
+  integrity sha512-SbDYx3/766FloG+LVvpcTb571lR3DLP8+N7QDbiZ4qExgS71T0csW2IWlNe0fzTpFMkTMqsBCw7gAxnsF/X0Jw==
+
 react-native@0.61.5:
   version "0.61.5"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.61.5.tgz#6e21acb56cbd75a3baeb1f70201a66f42600bba8"

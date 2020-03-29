@@ -8,10 +8,7 @@
   "react-native": "src/index.tsx",
   "files": [
     "src",
-    "lib",
-    "android",
-    "ios",
-    "earhart-shared-element.podspec"
+    "lib"
   ],
   "scripts": {
     "test": "jest",
@@ -44,7 +41,7 @@
     "@types/react": "^16.9.19",
     "@types/react-native": "0.61.10",
     "commitlint": "^8.3.4",
-    "earhart": "^0.1.1",
+    "earhart": "^0.1.2",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
@@ -54,6 +51,7 @@
     "react": "~16.9.0",
     "react-native": "~0.61.5",
     "react-native-gesture-handler": "^1.6.0",
+    "react-native-shared-element": "^0.6.0",
     "release-it": "^12.6.3",
     "typescript": "^3.7.5"
   },
@@ -61,7 +59,8 @@
     "earhart": "^0.1.1",
     "react": "*",
     "react-native": "*",
-    "react-native-gesture-handler": "^1.6.0"
+    "react-native-gesture-handler": "^1.6.0",
+    "react-native-shared-element": "^0.6.0"
   },
   "jest": {
     "preset": "react-native",

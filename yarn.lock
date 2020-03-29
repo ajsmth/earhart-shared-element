@@ -3419,10 +3419,10 @@ duplexer3@^0.1.4:
   resolved "https://registry.yarnpkg.com/duplexer3/-/duplexer3-0.1.4.tgz#ee01dd1cac0ed3cbc7fdbea37dc0a8f1ce002ce2"
   integrity sha1-7gHdHKwO08vH/b6jfcCo8c4ALOI=
 
-earhart@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/earhart/-/earhart-0.1.1.tgz#68cfecd5e965aa03be630d5aca3da92eaf0bc163"
-  integrity sha512-i+V4NSTV2Cb0hNSyau71IGlMWh96oFig/Wk4g7P9LanwigkfN28LScYrztRD72cdhNkhzc2YkOpnI/ayM4zH2g==
+earhart@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/earhart/-/earhart-0.1.2.tgz#2f647ffa6c4bb7c757a6f211333b6a8ae5c87063"
+  integrity sha512-xD3KmcNXJ5dvyRpf2sZVQgdND3cbQK0OlefI3Rx0q/Ec2j5Dqy+ZOwbDEtrc+Exo4xAlOZlM6g4XNDXh8BF/Dg==
   dependencies:
     "@types/history" "4"
     history "4"
@@ -7505,6 +7505,11 @@ react-native-gesture-handler@^1.6.0:
     hoist-non-react-statics "^2.3.1"
     invariant "^2.2.4"
     prop-types "^15.7.2"
+
+react-native-shared-element@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/react-native-shared-element/-/react-native-shared-element-0.6.0.tgz#76f6ea29579777306b6ecffd37bb48e2c4cf909e"
+  integrity sha512-SbDYx3/766FloG+LVvpcTb571lR3DLP8+N7QDbiZ4qExgS71T0csW2IWlNe0fzTpFMkTMqsBCw7gAxnsF/X0Jw==
 
 react-native@~0.61.5:
   version "0.61.5"

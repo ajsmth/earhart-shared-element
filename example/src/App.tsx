@@ -1,15 +1,10 @@
 import React from 'react';
+import { Router, Route, Link, useParams, Navigator, useHistory, Tabs } from 'earhart';
 import {
-  Router,
-  Route,
-  Link,
-  useParams,
-  Navigator,
-  useHistory,
-  Tabs,
-  useNavigator,
-} from 'earhart';
-import { SharedElement, SharedElements, useSharedElementInterpolation  } from 'earhart-shared-element';
+  SharedElement,
+  SharedElements,
+  useSharedElementInterpolation,
+} from 'earhart-shared-element';
 import { View, Text, Image, SafeAreaView, ScrollView } from './tailwind';
 import { Animated } from 'react-native';
 
@@ -20,16 +15,16 @@ const imageUris = [
   'https://images.unsplash.com/photo-1584034256047-741246c713e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1581&q=80',
 ];
 
-function Home() {
+function Home({ root }) {
   return (
     <View className="flex-1">
-      <Text className="text-2xl font-bold">Home 123</Text>
+      <Text className="text-2xl font-bold">Home</Text>
 
       <ScrollView className="flex-1 p-2">
         {imageUris.map((uri, index) => {
           return (
             <View key={index} className="p-2 m-2">
-              <Link to={`/profile/${index}`}>
+              <Link to={`${root}/profile/${index}`}>
                 <SharedElement id={`image-${index}`}>
                   <Image
                     source={{ uri }}
@@ -46,12 +41,12 @@ function Home() {
   );
 }
 
-function Profile() {
+function Profile({ root }) {
   const params = useParams();
 
   return (
     <View className="flex-1">
-      <Text className="text-2xl font-bold">Profile</Text>
+      <Text className="text-2xl font-bold bg-white">Profile</Text>
       <SharedElement id={`image-${params.id}`}>
         <Image
           source={{ uri: imageUris[parseInt(params.id)] }}
@@ -81,8 +76,8 @@ const transitionBottom = {
 
   opacity: {
     inputRange: [-1, 0, 1],
-    outputRange: [0, 1, 0]
-  }
+    outputRange: [0, 1, 0],
+  },
 };
 
 function TransitionBottom({ children }) {
@@ -95,38 +90,52 @@ function TransitionBottom({ children }) {
   );
 }
 
-function SharedElementNavigator() {
+function SharedElementNavigator({ root }) {
   return (
-    <>
+    <View className="flex-1">
       <SharedElements>
-        <Route path="/home">
-          <Home />
+        <Route path={`${root}/home`}>
+          <Home root={root} />
         </Route>
 
-        <Route path="/profile/:id">
-          <Profile />
+        <Route path={`${root}/profile/:id`}>
+          <Profile root={root} />
         </Route>
       </SharedElements>
 
       <View className="flex-row">
-        <Link to="/home">
+        <Link to={`${root}/home`}>
           <Text className="text-2xl font-medium">Home</Text>
         </Link>
       </View>
-    </>
+    </View>
   );
 }
 
 function App() {
   return (
-    <Router>
-      <Navigator>
-        <SharedElementNavigator />
-      </Navigator>
+    <SafeAreaView className="flex-1">
+      <Router>
+        <Navigator>
+          <Tabs>
+            <Route path="/one">
+              <Navigator>
+                <SharedElementNavigator root='/one' />
+              </Navigator>
+            </Route>
 
-      <Location />
-      <SafeAreaView />
-    </Router>
+            <Route path="/two">
+              <Navigator>
+                <SharedElementNavigator root='/two' />
+              </Navigator>
+            </Route>
+          </Tabs>
+        </Navigator>
+
+        <Location />
+        <SafeAreaView />
+      </Router>
+    </SafeAreaView>
   );
 }
 

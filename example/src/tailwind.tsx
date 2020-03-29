@@ -2,7 +2,6 @@ import React from 'react';
 import {
   View,
   Text,
-  ScrollView,
   Image,
   ViewProps,
   TextProps,
@@ -13,6 +12,8 @@ import {
   SafeAreaView,
   Animated,
 } from 'react-native';
+
+import { ScrollView } from 'react-native-gesture-handler'
 import tailwind from 'tailwind-rn';
 
 interface ITailwindViewProps extends ViewProps {

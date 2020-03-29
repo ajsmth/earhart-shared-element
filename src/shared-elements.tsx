@@ -9,7 +9,7 @@ import {
   SharedElementAnimation,
   SharedElementResize,
   SharedElementNode,
-} from './rn-shared-element';
+} from 'react-native-shared-element';
 
 import { StyleSheet, Animated, View, ViewStyle } from 'react-native';
 
@@ -216,7 +216,9 @@ function SharedElementsImpl({
               style={{ ...StyleSheet.absoluteFillObject }}
             >
               <IndexContext.Provider value={index}>
-                <SharedElementScreen>{child}</SharedElementScreen>
+                <SharedElementScreen activeIndex={currentIndex}>
+                  {child}
+                </SharedElementScreen>
               </IndexContext.Provider>
             </View>
           );
@@ -232,18 +234,30 @@ interface ISharedElementScreen {
   children: React.ReactNode;
 }
 
-function SharedElementScreen({ children }: ISharedElementScreen) {
+function SharedElementScreen({ children, activeIndex }: ISharedElementScreen) {
   const index = React.useContext(IndexContext);
   const { registerAncestor } = React.useContext(TransitionContext);
 
+  const animatedValue = React.useRef(new Animated.Value(0));
+
+  // prevent initial flash on mount
+  React.useEffect(() => {
+    Animated.timing(animatedValue.current, {
+      toValue: 1,
+      duration: 100,
+    }).start();
+  }, [activeIndex]);
+
   return (
-    <View
-      style={{ flex: 1 }}
-      collapsable={false}
-      ref={ref => registerAncestor(ref, index)}
-    >
-      {children}
-    </View>
+    <Animated.View style={{ flex: 1, opacity: animatedValue.current }}>
+      <View
+        style={{ flex: 1 }}
+        collapsable={false}
+        ref={ref => registerAncestor(ref, index)}
+      >
+        {children}
+      </View>
+    </Animated.View>
   );
 }
 
@@ -281,7 +295,6 @@ const DEFAULT_TRANSITION_CONFIG: ITransitionConfig = {
   useNativeDriver: true,
 };
 
-
 interface ISharedElementsNavigator {
   children: React.ReactNode;
   transitionConfig?: ITransitionConfig;
@@ -295,7 +308,9 @@ function SharedElements({
 }: ISharedElementsNavigator) {
   const { activeIndex } = useNavigator();
 
-  const animatedIndex = React.useRef(animatedValue || new Animated.Value(activeIndex));
+  const animatedIndex = React.useRef(
+    animatedValue || new Animated.Value(activeIndex)
+  );
 
   return (
     <TransitionContextProvider>

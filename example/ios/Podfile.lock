@@ -1,7 +1,7 @@
 PODS:
   - boost-for-react-native (1.63.0)
   - DoubleConversion (1.1.6)
-  - earhart-shared-element (0.1.7):
+  - earhart-shared-element (0.1.8):
     - React
   - FBLazyVector (0.61.5)
   - FBReactNativeSpec (0.61.5):
@@ -223,6 +223,8 @@ PODS:
     - React
   - RNScreens (2.4.0):
     - React
+  - RNSharedElement (0.6.0):
+    - React
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -256,6 +258,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNSharedElement (from `../node_modules/react-native-shared-element`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -317,13 +320,15 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-gesture-handler"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNSharedElement:
+    :path: "../node_modules/react-native-shared-element"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
-  earhart-shared-element: f861cfd59c0507f39e18a71e854ffdaeacd3f126
+  earhart-shared-element: 5492b6e42a17ff053adab85148e0703f53c93c40
   FBLazyVector: aaeaf388755e4f29cd74acbc9e3b8da6d807c37f
   FBReactNativeSpec: 118d0d177724c2d67f08a59136eb29ef5943ec75
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
@@ -349,6 +354,7 @@ SPEC CHECKSUMS:
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
   RNGestureHandler: dde546180bf24af0b5f737c8ad04b6f3fa51609a
   RNScreens: b5c0e1b2b04512919e78bd3898e144a157ce2363
+  RNSharedElement: 7c98e474c8f72a67bbabb820b4b86460aa6502d8
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
 PODFILE CHECKSUM: 7ca5613415cdf90c39276103f9de3e6a5c25ebf1
