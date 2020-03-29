@@ -5,7 +5,7 @@ shared element transitions w/ earhart
 ## Installation
 
 ```bash
-yarn add earhart-shared-element react-native-gesture-handler
+yarn add earhart-shared-element react-native-gesture-handler react-native-shared-element
 cd ios && pod install
 ```
 
